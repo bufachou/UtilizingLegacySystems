@@ -10,7 +10,7 @@
 This program through the Java adapter design pattern, to achieve compatibility between the legacy system interface and the new system interface.
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/bufachou/UtilizingLegacySystems/tree/main
 
 # Implementation Description 
 
