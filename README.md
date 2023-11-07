@@ -7,7 +7,7 @@
 | Assignment # | Assignment#4               |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+This program through the Java adapter design pattern, to achieve compatibility between the legacy system interface and the new system interface.
 
 # GitHub Repository Link:
 https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
@@ -15,16 +15,38 @@ https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
 # Implementation Description 
 
 
-For each assignment, please answer the following:
+# Explain the level of flexibility in your implementation
+The implementation provided showcases a high degree of flexibility inherent in the Adapter design pattern, 
+which facilitates future enhancements and modifications without significant restructuring of the existing codebase.
 
-- Explain the level of flexibility in your implementation, including how new object types can
-be easily added or removed in the future.
-- Discuss the simplicity and understandability of your implementation, ensuring that it is
-easy for others to read and maintain.
-- Describe how you have avoided duplicated code and why it is important.
-- If applicable, mention any design patterns you have used and explain why they were
-chosen.
+The adapter pattern decouples the client from the concrete implementation of the data system.  
+The IntegrationSystem doesn't need to know if it's getting data via USB or HTTPS;  
+it just knows that it's calling methods from an object that implements CustomerData_HTTPS.
 
+To add a new system, you would create a new interface and then implement a new adapter 
+that implements this interface while holding a reference to a class from one of the existing systems.  
+So the new system can be integrated without modifying the existing system's code.
+
+# Discuss the simplicity and understandability of your implementation
+The Adapter class, CustomerDataAdapter, is minimalistic, with straightforward methods 
+that directly map the new system calls to the legacy system's methods.
+The main method in IntegrationSystem class shows a clear example of creating and using the adapter, 
+which provides practical insight into how this implementation ties everything together.
+
+# Describe how you have avoided duplicated code and why it is important.
+I did this through the adapter pattern. This pattern allows objects to use one interface to work with other interfaces.
+In the CustomerDataAdapter class, I only wrote the code once to convert the request from the new system to the old system. 
+If the way the legacy system is called changes in the future, I just need to update the code in one place 
+instead of copying and pasting the new implementation everywhere.
+
+# If applicable, mention any design patterns you have used and explain why they were chosen.
+I use Adapter design pattern. The Adapter pattern is a structural design pattern 
+that allows objects with incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces.
+
+I created a Compatible Interface: The CustomerDataAdapter class implements the CustomerData_HTTPS interface, 
+which is the target interface expected by the new system.  However, instead of implementing the methods from scratch, 
+it adapts the calls to the existing CustomerData_USB interface of the old system.  
+This way, the CustomerDataAdapter translates the method calls from the new system into a form that the legacy system can understand.
 
 # Maven Commands
 
